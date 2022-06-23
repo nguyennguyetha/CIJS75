@@ -1,0 +1,24 @@
+.input{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 40%;
+    border-bottom: 1px solid grey;
+}
+::placeholder {
+    color: rgb(12, 71, 12);
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.item{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    color: rgb(12, 71, 12);
+}
+
+.footer{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    color: rgb(12, 71, 12);
+}
