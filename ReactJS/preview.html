@@ -1,0 +1,180 @@
+# SPA/ MPA (Single Page Application/ Multiple Pages Application)
+//Deployment
+- SPA -> CSR (Client side rendering)
+- MPA -> SSR (Server side rendering)
+
+# document.createElement()
+1. document.createElement () --> DOM 
+2. document. body. appendChild()
+3. console.dir()
+4. innerText, id, className, style 
+
+<div id="root"></div>
+<script>
+    const h1 = document.createElement('h1')
+    h1.innerText = 'Hello'
+    h1.id = 'heading' //HTML <p>
+    h1.class = 'Test' //HTML <div>
+    h1.style = 'color: green' //CSS
+//or
+    Object.assign(h1.style, {
+        color: 'green';
+        font-size: 18px; 
+    })
+    console.log(h1); //render to "Console"
+    document.body.appendChild(h1) //render to "HTML Web"
+//or 
+    root.appendChild(h1)
+</script>
+
+# react.createElement()
+1. react.createElement() -> React element 
+2. Alternatives (id, style...)
+3. Adding: HTML, text
+4. Deploying
+<script>
+//DOM 
+const h1DOM = document.createElement('h1')
+h1DOM.titile = 'Hello'
+h1DOM.className = 'heading'
+document.body.appendChild(h1DOM) //rendering to HTML 
+
+//React (type, props{}, children...)
+const h1React = React.createElement('h1', {
+    title: 'Hello'
+    className: 'heading'
+}, 'Hello')
+
+console.dir(h1DOM);
+console.log(h1React);
+</script>
+
+# reactDOM 
+1. Use case: 
+- To create elements via React to render into DOM 
+- React Native: iOS, Android: Bridge between React and Native
+2. ReactDOM Extraction
+3. Render UI:
+<script> 
+const root = document.getElementById('root')
+ReactDOM.render(Item, root)
+//or 
+const root = ReactDOM.createRoot(
+  document.getElementById('root')
+);
+const element = <h1>Hello, world</h1>;
+root.render(element);
+</script>
+
+
+4. Downloading 
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script> 
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin> //to download ReactDOM
+  </script> 
+
+# JSX & Components 
+- JSX = Javascript XML (XML - <open> /<closed> - the previous HTML)
+- Babel 'http://babeljs.io/' - An analysis tool of JS  (ES6 -> ES5)
+{props}
+
+<script>//importing- exporting
+
+//Export default: to export a specific default file. 
+//MyClass.js 
+
+import React from "react"; 
+export default class MyClass extends React.Component {
+  ...
+} 
+
+//Main.js
+
+import React from "react"; 
+import MyClass from "MyClass";
+export default class Main extends React.Component {
+  render() {
+    return(
+        <MyClass />
+      );
+  }
+}
+
+//Named Export:
+
+//functionsFile.js
+
+//exporting a function
+export function squareNumber(x) {
+  return x * x; 
+}
+
+//exporting a variable 
+export const pi = 3.14; 
+
+//Cách khác để export:
+
+//exporting a function
+function squareNumber(x) {
+  return x * x; 
+}
+
+//exporting a variable 
+const pi = 3.14; 
+export {squareNumber, pi} ; 
+</script>
+
+<script> //with JSX 
+ import React from 'react'
+ import "./App.css"
+ function App() {
+	return (
+		<div className="app">
+			<h1>Hello, World!</h1>
+		</div>
+	)	
+}
+</script>
+
+<script> //without JSX 
+    import React from 'react'
+    import "./App.css"
+
+function App() {
+	return React.createElement(
+		"div",
+		{className: "app"},
+		React.createElement("h1", {}, "Hello, World!")
+	)
+}
+</script>
+
+
+# React Hooks 
+<script> 
+import {
+    useState,
+    useEffect,
+    useLayoutEffect,
+    useRef,
+    useCallback,
+    useMemo,
+    useReducer,
+    useContext,
+    useImperativeHandle, 
+    useDebugValue,
+} from 'react' 
+
+function Component(){
+    //useState
+    const [state, setState] = useState(initState)
+
+    //useEffect
+    const (() => {
+
+    }, [deps])
+
+    return <h1>Hooks</h1>
+}
+
+</script> 
